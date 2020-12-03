@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { MenuItem } from '../model/menuItem.model';
+import { Product } from '../model/product.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MenuItemService {
-  private menuItems: MenuItem[] = [];
+  private menuItems: Product[] = [];
 
   constructor() {
     this.menuItems = [
@@ -36,11 +36,11 @@ export class MenuItemService {
     ];
   }
 
-  getMenuItems(): MenuItem[] {
+  getMenuItems(): Product[] {
     return this.menuItems;
   }
 
-  getMenuItem(id: number): MenuItem {
+  getMenuItem(id: number): Product {
     return this.menuItems[id];
   }
 }

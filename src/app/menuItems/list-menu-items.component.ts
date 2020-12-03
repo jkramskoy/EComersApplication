@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from '../model/menuItem.model';
+import { Product } from '../model/product.model';
 import { MenuItemService } from '../../app/services/menu-item.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { MenuItemService } from '../../app/services/menu-item.service';
   styleUrls: ['./list-menu-items.component.css'],
 })
 export class ListMenuItemsComponent implements OnInit {
-  menuItems?: MenuItem[];
+  menuItems?: Product[];
 
   constructor(private service: MenuItemService) {}
 
