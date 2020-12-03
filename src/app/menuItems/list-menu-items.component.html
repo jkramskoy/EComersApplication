@@ -1,3 +1,8 @@
+<p class="text-info">
+  Welcome to the Angular Store<br />
+  Please select the products you want ….<br />
+</p>
+
 <div class="panel panel-success" *ngFor="let mi of menuItems">
   <div class="panel-heading">
     <h3>{{ mi.name }}</h3>
@@ -20,10 +25,22 @@
             <div class="col-xs-8">: {{ mi.price }}</div>
           </div>
           <div class="row">
-            <div class="col-xs-12">
-              <hr />
-              <a href="#">Add to the cart</a><br />
-              <input type="number" min="0"/>
+            <div class="col-xs-4">
+              <br />
+              <span>Amount</span><br />
+              <input type="number" min="1" value="1" id="{{ mi.id }}" />
+            </div>
+            <div class="col-xs-8">
+              <br />
+              <span></span>
+              <br />
+              <button
+                type="button"
+                class="btn btn-default"
+                ng-click="cart.checkout()"
+              >
+                Add to cart
+              </button>
             </div>
           </div>
         </div>
@@ -31,5 +48,5 @@
     </div>
   </div>
 
-  <div class="panel-footer">Panel footer</div>
+  <div class="panel-footer">{{ mi.description }}</div>
 </div>
