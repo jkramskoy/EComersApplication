@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { WelcomeComponent } from './welcome/welcome.component';
-import { ListMenuItemsComponent } from './menuItems/list-menu-items.component';
-import { CreateMenuProductComponent } from './menuItems/create-menu-product.component';
+import { ListMenuItemsComponent } from './products/list-menu-items.component';
+import { CreateMenuProductComponent } from './products/create-menu-product.component';
 import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
