@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { WelcomeComponent } from './welcome/welcome.component';
-import { ListMenuItemsComponent } from './products/list-menu-items.component';
-import { CreateMenuProductComponent } from './products/create-menu-product.component';
+import { ListProductsComponent } from './products/list-products.component';
+import { CreateProductComponent } from './products/create-product.component';
 import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
-  { path: 'list', component: ListMenuItemsComponent },
-  { path: 'create', component: CreateMenuProductComponent },
+  { path: 'list', component: ListProductsComponent },
+  { path: 'create', component: CreateProductComponent },
   { path: 'cart', component: CartComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
 ];

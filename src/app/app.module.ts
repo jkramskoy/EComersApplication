@@ -3,18 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListMenuItemsComponent } from './products/list-menu-items.component';
+import { ListProductsComponent } from './products/list-products.component';
 import { CartComponent } from './cart/cart.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { CreateMenuProductComponent } from './products/create-menu-product.component';
+import { CreateProductComponent } from './products/create-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListMenuItemsComponent,
+    ListProductsComponent,
     CartComponent,
     WelcomeComponent,
-    CreateMenuProductComponent,
+    CreateProductComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
