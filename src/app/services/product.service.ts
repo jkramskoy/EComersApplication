@@ -4,11 +4,11 @@ import { Product } from '../model/product.model';
 @Injectable({
   providedIn: 'root',
 })
-export class MenuItemService {
-  private menuItems: Product[] = [];
+export class ProductService {
+  private products: Product[] = [];
 
   constructor() {
-    this.menuItems = [
+    this.products = [
       {
         id: 1,
         name: 'Aftershave',
@@ -36,11 +36,11 @@ export class MenuItemService {
     ];
   }
 
-  getMenuItems(): Product[] {
-    return this.menuItems;
+  getProducts(): Product[] {
+    return this.products;
   }
 
-  getMenuItem(id: number): Product {
-    return this.menuItems[id];
+  getProduct(id: number): Product {
+    return this.products[id];
   }
 }
