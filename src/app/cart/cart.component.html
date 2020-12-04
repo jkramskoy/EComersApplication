@@ -6,6 +6,14 @@
       {{
         i.quantity * (i.product["price"] !== undefined ? i.product["price"] : 1)
       }}
+      <a class="glyphicon glyphicon-remove-circle">Remove Product</a>
+      <!-- <a class="glyphicon glyphicon-remove-circle" 
+      title="remove item"
+      (click)="remove(idx)" ></a> -->
     </div>
   </div>
+</div>
+
+<div class="panel-footer">
+  <b>Estimate Total: ${{ total }}</b>
 </div>
