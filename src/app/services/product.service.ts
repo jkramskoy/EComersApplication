@@ -40,7 +40,20 @@ export class ProductService {
     return this.products;
   }
 
+  private getSelectedIndex(id: number) {
+    for (var i = 0; this.getProduct.length; ++i) {
+      if (this.products[i].id == id) {
+        return i;
+      }
+    }
+
+    return -1;
+  }
+
   getProduct(id: number): Product {
-    return this.products[id];
+    return this.products[this.getSelectedIndex(id)];
+  }
+  addProduct(pr: Product) {
+    this.products.push(pr);
   }
 }

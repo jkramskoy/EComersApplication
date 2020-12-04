@@ -1,1 +1,11 @@
-<p>cart works!</p>
+<div class="container" *ngFor="let i of items">
+  <div class="panel panel-succes">
+    <div class="panel-heading">
+      {{ i.product["name"] }}
+      Quantity: {{ i.quantity }} Total:
+      {{
+        i.quantity * (i.product["price"] !== undefined ? i.product["price"] : 1)
+      }}
+    </div>
+  </div>
+</div>
