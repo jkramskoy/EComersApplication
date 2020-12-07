@@ -36,7 +36,7 @@ export class CartComponent implements OnInit {
 
     if (dataSourse != null) {
       let cartData = JSON.parse(dataSourse);
-      console.log(cartData);
+      //console.log(cartData);
       //debugger;
       for (let i = 0; i < cartData.length; ++i) {
         let product = this.service.getProduct(JSON.parse(cartData[i]).id);
@@ -47,5 +47,36 @@ export class CartComponent implements OnInit {
         this.items.push(item);
       }
     }
+  }
+
+  remove(idx: number): void {
+    let dataSourse = localStorage.getItem('cartData') || null;
+
+    if (dataSourse != null) {
+      let cartData = JSON.parse(dataSourse);
+
+      cartData.splice(idx, 1);
+      localStorage.setItem('cartData', JSON.stringify(cartData));
+    }
+
+    this.loadCart();
+  }
+
+  recalculate(id: number, quantity: number): void {
+    let dataSourse = localStorage.getItem('cartData') || null;
+
+    if (dataSourse != null) {
+      let cartData = JSON.parse(dataSourse);
+      for (let i = 0; i < cartData.length; i++) {
+        let obj = JSON.parse(cartData[i]);
+
+        if (obj.id == id) {
+          obj.qty = quantity;
+          cartData[i] = JSON.stringify(obj);
+          localStorage.setItem('cartData', JSON.stringify(cartData));
+        }
+      }
+    }
+    this.loadCart();
   }
 }

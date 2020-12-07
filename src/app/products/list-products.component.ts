@@ -16,15 +16,31 @@ export class ListProductsComponent implements OnInit {
     this.products = this.service.getProducts();
   }
 
-  toCartData(id?: number, qty?: number): void {
+  toCartData(id: number, qty: number): void {
+    let itemExists = false;
     let cartData = localStorage.getItem('cartData') || '[]';
-    console.log(cartData);
     let json = JSON.parse(cartData);
-    console.log(json);
 
-    json.push(JSON.stringify({ id: id, qty: qty }));
+    for (let i = 0; i < json.length; i++) {
+      let cartItemObject = JSON.parse(json[i]);
+      if (cartItemObject.id == id) {
+        let newQ = cartItemObject.qty + qty;
+        cartItemObject.qty = newQ;
+        itemExists = true;
+        json[i] = JSON.stringify(cartItemObject);
+      }
+    }
+    if (!itemExists) {
+      json.push(JSON.stringify({ id: id, qty: qty }));
+    }
+
     localStorage.setItem('cartData', JSON.stringify(json));
 
-    //console.log(localStorage.getItem('cartData'));
+    //console.log(`local storage has:` + localStorage.getItem('cartData'));
+  }
+
+  clearCartData(): void {
+    localStorage.setItem('cartData', '');
+    console.log(localStorage.getItem('cartData'));
   }
 }

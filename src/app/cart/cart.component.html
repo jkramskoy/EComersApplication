@@ -1,15 +1,30 @@
-<div class="container" *ngFor="let i of items">
+<div class="container" *ngFor="let i of items; let idx = index">
   <div class="panel panel-succes">
     <div class="panel-heading">
       {{ i.product["name"] }}
-      Quantity: {{ i.quantity }} Total:
+      Quantity:
+      <input
+        #myInput
+        id="qty"
+        type="number"
+        min="1"
+        max="20"
+        value="{{ i.quantity }}"
+        class="inputnumber"
+        (change)="recalculate(i.product['id'], +myInput.value)"
+      />
+
+      Total:
       {{
         i.quantity * (i.product["price"] !== undefined ? i.product["price"] : 1)
       }}
-      <a class="glyphicon glyphicon-remove-circle">Remove Product</a>
-      <!-- <a class="glyphicon glyphicon-remove-circle" 
-      title="remove item"
-      (click)="remove(idx)" ></a> -->
+
+      <a
+        class="glyphicon glyphicon-remove-circle"
+        title="remove item"
+        (click)="remove(idx)"
+        >Remove</a
+      >
     </div>
   </div>
 </div>
