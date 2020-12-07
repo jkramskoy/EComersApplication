@@ -61,7 +61,7 @@ export class CartComponent implements OnInit {
 
     this.loadCart();
   }
-
+  // change in quantety in cart  before payment
   recalculate(id: number, quantity: number): void {
     let dataSourse = localStorage.getItem('cartData') || null;
 
