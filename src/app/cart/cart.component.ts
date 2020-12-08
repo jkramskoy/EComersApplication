@@ -44,7 +44,7 @@ export class CartComponent implements OnInit {
 
         let item = new Item(product, q);
         this.total += product.price * q;
-        this.items.push(item);
+        this.items.push(item).toFixed;
       }
     }
   }
