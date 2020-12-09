@@ -12,8 +12,15 @@ export class ListProductsComponent implements OnInit {
 
   constructor(private service: ProductService) {}
 
+  // ngOnInit(): void {
+  //   this.products = this.service.getProducts();
+  // }
+
   ngOnInit(): void {
-    this.products = this.service.getProducts();
+    this.service.get().subscribe((data: Product[]) => {
+      this.products = data;
+      this.service.loadProducts(data);
+    });
   }
 
   toCartData(id: number, qty: number): void {
@@ -42,5 +49,9 @@ export class ListProductsComponent implements OnInit {
   clearCartData(): void {
     localStorage.setItem('cartData', '');
     console.log(localStorage.getItem('cartData'));
+  }
+
+  ifLogin() {
+    return !this.service.invalidLogin;
   }
 }
