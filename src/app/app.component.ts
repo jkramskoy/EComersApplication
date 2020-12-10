@@ -10,7 +10,7 @@ export class AppComponent {
 
   colSpan = 2;
 
-  title = 'Angular Restaurant Project';
+  title = 'Angular Product Project';
   imagePath: string =
     'https://www.google.com/logos/doodles/2020/december-holidays-day-1-6753651837108829.5-s.png';
 
