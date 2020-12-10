@@ -9,13 +9,17 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
   private products: Product[] = [];
-  private API_SERVER = 'https://localhost:5001/product';
+  private API_SERVER = 'https://localhost:5001/product/';
   invalidLogin: boolean = true;
 
   constructor(private http: HttpClient) {}
 
   get(): Observable<Product[]> {
     return this.http.get<Product[]>(this.API_SERVER);
+  }
+
+  getById(id: number): Observable<Product> {
+    return this.http.get<Product>(this.API_SERVER + id);
   }
 
   // constructor() {
@@ -46,8 +50,22 @@ export class ProductService {
   //     },
   //   ];
   // }
-  loadProducts(listProducts: Product[]) {
-    this.products = listProducts;
+  // loadProducts(listProducts: Product[]) {
+  //   this.products = listProducts;
+  // }
+
+  getProduct(id: number): Product {
+    let res: Product = new Product(0, '', 0, '');
+    //debugger;
+    this.getById(id).subscribe((data: Product) => {
+      res.id = data.id;
+      res.name = data.name;
+      res.price = data.price;
+      res.photoPath = data.photoPath;
+      res.description = data.description;
+    });
+
+    return res;
   }
 
   getProducts(): Product[] {
@@ -64,9 +82,9 @@ export class ProductService {
     return -1;
   }
 
-  getProduct(id: number): Product {
-    return this.products[this.getSelectedIndex(id)];
-  }
+  // getProduct(id: number): Product {
+  //   return this.products[this.getSelectedIndex(id)];
+  // }
   addProduct(pr: Product) {
     this.products.push(pr);
   }

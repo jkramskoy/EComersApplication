@@ -43,10 +43,20 @@ export class CartComponent implements OnInit {
         let q: number = JSON.parse(cartData[i]).qty;
 
         let item = new Item(product, q);
-        this.total += product.price * q;
-        this.items.push(item).toFixed;
+        //this.total += product.price * q;
+        this.items.push(item);
       }
     }
+  }
+
+  getTotal() {
+    return this.items
+      .reduce((a, b) => a + b.product.price * b.quantity, 0)
+      .toFixed(2);
+  }
+
+  onchange(i: number, value: number) {
+    this.items[i].quantity = value;
   }
 
   remove(idx: number): void {
@@ -61,22 +71,23 @@ export class CartComponent implements OnInit {
 
     this.loadCart();
   }
+
   // change in quantety in cart  before payment
-  recalculate(id: number, quantity: number): void {
-    let dataSourse = localStorage.getItem('cartData') || null;
+  // recalculate(id: number, quantity: number): void {
+  //   let dataSourse = localStorage.getItem('cartData') || null;
 
-    if (dataSourse != null) {
-      let cartData = JSON.parse(dataSourse);
-      for (let i = 0; i < cartData.length; i++) {
-        let obj = JSON.parse(cartData[i]);
+  //   if (dataSourse != null) {
+  //     let cartData = JSON.parse(dataSourse);
+  //     for (let i = 0; i < cartData.length; i++) {
+  //       let obj = JSON.parse(cartData[i]);
 
-        if (obj.id == id) {
-          obj.qty = quantity;
-          cartData[i] = JSON.stringify(obj);
-          localStorage.setItem('cartData', JSON.stringify(cartData));
-        }
-      }
-    }
-    this.loadCart();
-  }
+  //       if (obj.id == id) {
+  //         obj.qty = quantity;
+  //         cartData[i] = JSON.stringify(obj);
+  //         localStorage.setItem('cartData', JSON.stringify(cartData));
+  //       }
+  //     }
+  //   }
+  //   this.loadCart();
+  // }
 }

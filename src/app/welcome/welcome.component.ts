@@ -22,13 +22,6 @@ export class WelcomeComponent implements OnInit {
 
   // "johndoe" && user.Password == "def@123"
 
-  // login(form: NgForm) {
-  //   //console.log(JSON.stringify(form.value));
-
-  //   const url = 'https://localhost:5001/Auth/login';
-  //   const body = JSON.stringify(form.value);
-  //   console.log(body);
-  // }
   login(form: NgForm) {
     const url = 'https://localhost:5001/Auth/login';
     const body = JSON.stringify(form.value);
