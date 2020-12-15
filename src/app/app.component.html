@@ -1,6 +1,14 @@
 <div class="container">
   <nav class="navbar navbar-inverse">
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav-right">
+      <li *ngIf="ifLogin()">
+        <a (click)="logOut()">Logout</a>
+      </li>
+      <li *ngIf="!ifLogin()">
+        <a routerLink="/">Login</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav-left">
       <li>
         <a routerLink="list">Products</a>
       </li>

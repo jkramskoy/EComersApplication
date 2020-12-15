@@ -1,0 +1,17 @@
+li {
+  margin-left: 10px;
+}
+
+.glyphicon.glyphicon-cutlery {
+  font-size: 30px;
+  color: #d1caca;
+  margin-left: 15px;
+}
+
+.glyphicon.glyphicon-shopping-cart {
+  font-size: 20px;
+  margin-right: 15px;
+}
+a {
+  margin-left: 15px;
+}
